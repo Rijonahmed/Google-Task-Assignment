@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ToDo from './ToDo';
+import AllTasks from './AllTasks';
 
 const Home = () => {
   const date = new Date();
   const formattedDate = format(date, 'PP')
+  const [isReload, setIsReload] = useState(true);
 
   const handleTaskSubmit = e => {
     e.preventDefault();
@@ -29,11 +32,23 @@ const Home = () => {
       .then(data => {
         e.target.reset();
         toast.success('Tasks inserted success');
+        setIsReload(!isReload)
         console.log(data);
       })
 
 
   }
+
+  const [tasks, setTasks] = useState([]);
+
+
+  useEffect(() => {
+    fetch('http://localhost:5000/tasks')
+      .then(res => res.json())
+      .then(data => setTasks(data))
+
+
+  }, [isReload])
   return (
     <div>
       <h1>this is home</h1>
@@ -44,10 +59,22 @@ const Home = () => {
             <textarea name='tasks' className="textarea textarea-bordered text-2xl lg:w-8/12 " placeholder="Type Your Tasks" required></textarea>
             <input type="submit" value="Submit" className="btn btn-accent w-full max-w-xs " />
           </form>
-
-
         </div>
+      </div>
 
+
+
+
+      <div className='my-5'>
+        <h1>TO DO component</h1>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
+          {
+            tasks.map(task => <AllTasks
+              key={task._id}
+              task={task}
+            ></AllTasks>)
+          }
+        </div>
       </div>
       <ToastContainer />
     </div>
