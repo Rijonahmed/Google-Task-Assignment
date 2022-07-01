@@ -6,6 +6,7 @@ import Home from './component/Home';
 import Navber from './component/Navber';
 import ToDo from './component/ToDo';
 import Update from './component/Update';
+import NotFound from './component/NotFound';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/toDo" element={<ToDo></ToDo>}></Route>
         <Route path="/calender" element={<Calendar></Calendar>} />
         <Route path="/update/:updateId" element={<Update></Update>} />
+
+        <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
 
       <Footer></Footer>

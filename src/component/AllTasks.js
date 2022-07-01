@@ -16,7 +16,7 @@ const AllTasks = ({ task }) => {
           <p>{date}</p>
           <div class="form-control">
             <label class="label cursor-pointer">
-              <span class="label-text">Remember me</span>
+              <span class="label-text">Completed</span>
               <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
             </label>
           </div>

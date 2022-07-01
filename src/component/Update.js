@@ -6,7 +6,7 @@ const Update = () => {
   const [singleTask, setSingleTask] = useState({});
   const [isReload, setIsReload] = useState(true);
 
-  const url = `http://localhost:5000/tasks/${updateId}`
+  const url = `https://obscure-dusk-11801.herokuapp.com/tasks/${updateId}`
 
   useEffect(() => {
     fetch(url)
@@ -20,7 +20,7 @@ const Update = () => {
 
     const tasksText = e.target.task.value;
 
-    const url = `http://localhost:5000/tasks/${updateId}`
+    const url = `https://obscure-dusk-11801.herokuapp.com/tasks/${updateId}`
 
     fetch(url, {
       method: 'PUT',

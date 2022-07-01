@@ -10,11 +10,6 @@ const Home = () => {
   const [isReload, setIsReload] = useState(true);
 
 
-
-
-
-
-
   const handleTaskSubmit = e => {
     e.preventDefault();
     const tasksText = e.target.tasks.value;
@@ -25,7 +20,7 @@ const Home = () => {
     }
     console.log(tasks)
 
-    fetch('http://localhost:5000/tasks', {
+    fetch('https://obscure-dusk-11801.herokuapp.com/tasks', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -48,7 +43,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/tasks')
+    fetch('https://obscure-dusk-11801.herokuapp.com/tasks')
       .then(res => res.json())
       .then(data => setTasks(data))
 
@@ -74,9 +69,8 @@ const Home = () => {
 
 
 
-
       <div className='my-5'>
-        <h1>TO DO component</h1>
+        <h1 className='text-2xl font-bold text-center'>All Task</h1>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
           {
             tasks.map(task => <AllTasks
