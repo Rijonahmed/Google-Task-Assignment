@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ToDo from './ToDo';
 import AllTasks from './AllTasks';
 
 const Home = () => {
   const date = new Date();
   const formattedDate = format(date, 'PP')
   const [isReload, setIsReload] = useState(true);
+
+
+
+
+
+
 
   const handleTaskSubmit = e => {
     e.preventDefault();
@@ -49,15 +54,20 @@ const Home = () => {
 
 
   }, [isReload])
+
+
+
+
   return (
     <div>
-      <h1>this is home</h1>
       <div class="card lg:card-side bg-base-100 shadow-xl">
         <h1 className='text-3xl font-bold text-center my-12 px-5'>Please Enter Your Task...</h1>
         <div class="card-body ">
           <form onSubmit={handleTaskSubmit}>
             <textarea name='tasks' className="textarea textarea-bordered text-2xl lg:w-8/12 " placeholder="Type Your Tasks" required></textarea>
-            <input type="submit" value="Submit" className="btn btn-accent w-full max-w-xs " />
+            <br />
+            <input type="submit" value="Submit" className="btn btn-outline-primary lg:w-8/12" />
+
           </form>
         </div>
       </div>

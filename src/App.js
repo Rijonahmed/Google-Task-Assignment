@@ -5,6 +5,7 @@ import Footer from './component/Footer';
 import Home from './component/Home';
 import Navber from './component/Navber';
 import ToDo from './component/ToDo';
+import Update from './component/Update';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/toDo" element={<ToDo></ToDo>}></Route>
         <Route path="/calender" element={<Calendar></Calendar>} />
+        <Route path="/update/:updateId" element={<Update></Update>} />
       </Routes>
 
       <Footer></Footer>
