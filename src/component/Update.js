@@ -31,7 +31,7 @@ const Update = () => {
     })
       .then(res => res.json())
       .then(data => {
-        alert('quantity added seccessfully');
+        alert('you update seccessfully');
         setIsReload(!isReload)
         e.target.reset();
       })
